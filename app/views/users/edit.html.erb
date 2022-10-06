@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="ol-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>User info</h1>
-      <%= form_with model: @user url: edit_user_path(@user.id), method: :patch do |f| %>
+      <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
       <div class="form-group">
       <label>Name</label>
-      <%= f.text_field :name  %>
+      <%= f.text_field :name, class: 'form-control'  %>
       </div>
-      <div class="form-group">      
+      <div class="form-group">
       <label>Image</label>
-      <%= f.file_field :image, accept: "image/*" %>
+      <%= f.file_field :image, accept: "image/*",class: 'form-control-file' %>
       </div>
-      <div class="form-group">       
+      <div class="form-group">
       <label>Introduction</label>
-      <%= f.text_area :introduction %>
+      <%= f.text_area :introduction , class: 'form-control'%>
       </div>
-      <div class="form-group"> 
-      <button class="bnt btn-secondary"><%= f.submit 'Update User' %></button>
+      <div class="form-group">
+      <%= f.submit 'Update User', class: 'btn btn-secondary' %>
       </div>
       <% end %>
     </div>
