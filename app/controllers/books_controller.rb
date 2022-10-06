@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
   def index
-  end
-
+    @user = current_user
+  end 
+  
   def show
   end
 

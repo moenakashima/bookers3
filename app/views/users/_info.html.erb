@@ -1,0 +1,24 @@
+
+<% if user.image.attached? %>
+<%= image_tag user.image, size: '100x100' %>
+<% else %>
+<%= image_tag 'no_image', size: '100x100' %>
+<% end %>
+<table class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>Name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>Introduction</th>
+      <th><%= user.introduction %></th>
+  </tbody>
+    </tr>
+    </tr>
+</table>
+
+<div class="row">
+  <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(user.id) %>"><i class="fas fa-user-cog"></i></a>
+</div>
