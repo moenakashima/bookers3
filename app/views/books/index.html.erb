@@ -24,10 +24,10 @@
             <% @books.each do |f| %>
             <tr>
               <td><%= link_to(f.user) do %>
-              <%= image_tag f.user.get_image, size: '80x80' %>
+              <%= image_tag f.user.get_profile_image, size: '80x80' %>
               <% end %>
               </td>
-              <td><%= link_to f.title, "books/#{f.id}"  %></td>
+              <td><%= link_to f.title, "/books/#{f.id}"  %></td>
               <td><%= f.body %></td>
             </tr>
             <% end %>

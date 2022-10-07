@@ -13,15 +13,15 @@
           <tr>
             <td>
               <%= link_to(@book.user) do %>
-              <%= image_tag @book.user.get_image, size: '100x100' %>
+              <%= image_tag @book.user.get_profile_image, size: '100x100' %>
               <br><%= @book.user.name %>
               <% end %>
             </td>
             <td><%= link_to @book.title, "/books/#{@book.id}"  %></td>
             <td><%= @book.body %></td>
             <% if @book.user_id == current_user.id %>
-            <td><%= link_to 'Edit', "#{@book.id}/edit", class: "btn btn-sm btn-success" %></td>
-            <td><%= link_to 'Destroy', "#{@book.id}", class: "btn btn-sm btn-danger", method: :delete %></td>
+            <td><%= link_to 'Edit', "/books/#{@book.id}/edit", class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', "/books/#{@book.id}", class: "btn btn-sm btn-danger", method: :delete %></td>
             <% else %>
             <% end %>
           </tr>

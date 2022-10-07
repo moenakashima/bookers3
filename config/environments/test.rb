@@ -47,7 +47,8 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
 
   # Raise exceptions for disallowed deprecations.
-  config.active_support.disallowed_deprecation = :raise
+  config.active_support.disallowed_deprecation = :silence
+
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []

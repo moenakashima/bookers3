@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
  has_many :books
 
- has_one_attached :image
+ has_one_attached :profile_image
 
  validates :name, uniqueness: true, length: { in: 2..20 }
- validates :introduction, presence: true, length: { maximum: 50 }
+ validates :introduction,length: { maximum: 50 }
 
-def get_image
-(image.attached?) ? image : 'no_image.jpg'
+def get_profile_image
+(profile_image.attached?) ? profile_image : 'no_image.jpg'
 end
 end
