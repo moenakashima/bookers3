@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
  has_one_attached :image
 
+ validates :name, uniqueness: true, length: { in: 2..20 }
+ validates :introduction, presence: true, length: { maximum: 50 }
+
 def get_image
 (image.attached?) ? image : 'no_image.jpg'
 end
