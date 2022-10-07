@@ -23,12 +23,26 @@
           <tbody>
             <% @books.each do |f| %>
             <tr>
-              <td><%= link_to(f.user) do %>
-              <%= image_tag f.user.get_profile_image, size: '80x80' %>
-              <% end %>
+              <td>
+                <%= link_to(f.user) do %>
+                <%= image_tag f.user.get_profile_image, size: '80x80' %>
+                <% end %>
               </td>
               <td><%= link_to f.title, "/books/#{f.id}"  %></td>
               <td><%= f.body %></td>
+              <% if f.favorited_by?(current_user) %>
+                <td>
+                  <%= link_to book_favorites_path(f.id), method: :delete do %>
+                  <i class="fa fa-heart"></i><%= f.favorites.count %>
+                  <% end %>
+                </td>
+              <% else %>
+                <td>
+                  <%= link_to book_favorites_path(f.id), method: :post do %>
+                  <i class="far fa-heart"></i><%= f.favorites.count %>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>
