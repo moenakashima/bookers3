@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-
+    @comment = Comment.new
   end
 
   def create
@@ -48,5 +48,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
+
 
 end

@@ -27,6 +27,8 @@
               </td>
               <td><%= link_to f.title, "/books/#{f.id}"  %></td>
               <td><%= f.body %></td>
+              <td>コメント数：<%= f.comments.count %></td>
+
             </tr>
             <% end %>
           </tbody>
