@@ -1,0 +1,16 @@
+<% book.comments.each do |f| %>
+<tr>
+  <td>
+    <%= link_to(f.user) do %>
+      <%= image_tag f.user.get_profile_image, size: '50x50' %>
+      <br><%= f.user.name %>
+    <% end %>
+  </td>
+  <td><%= f.comment %></td>
+  <td>
+    <% if f.user_id == current_user.id %>
+     <%= link_to 'Delete' , "/books/#{f.book_id}/comments/#{f.id}", class: "btn btn-sm btn-danger", method: :delete, remote: true%>
+    <% end %>
+  </td>
+</tr>
+<% end %>
