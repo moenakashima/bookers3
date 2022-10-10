@@ -20,19 +20,34 @@ class User < ApplicationRecord
  validates :introduction,length: { maximum: 50 }
 
 
-def get_profile_image
-(profile_image.attached?) ? profile_image : 'no_image.jpg'
-end
+  def get_profile_image
+  (profile_image.attached?) ? profile_image : 'no_image.jpg'
+  end
 
-def follow(user)
-  active_relationships.create(followed_id: user.id)
-end
+  def follow(user)
+    active_relationships.create(followed_id: user.id)
+  end
 
-def unfollow(user)
-  active_relationships.find_by(followed_id: user.id).destroy
-end
+  def unfollow(user)
+    active_relationships.find_by(followed_id: user.id).destroy
+  end
 
-def following?(user)
-  followings.include?(user)
-end
+  def following?(user)
+    followings.include?(user)
+  end
+
+  def self.search_for(content, method)
+    if method == 'perfect_match'
+      User.where(name: content)
+    elsif method == 'forward_match'
+      User.where("name LIKE?", content + '%')
+    elsif method == 'backward_match'
+      User.where("name LIKE?", '%' + content)
+    elsif method == 'partical_match'
+      User.where("name LIKE?", '%' + content + '%')
+    else
+      User.all
+    end
+  end
+
 end
