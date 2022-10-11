@@ -1,0 +1,5 @@
+<% if @group_users.present? %>
+  <td><%= link_to 'Leave this group', group_group_users_path(group.id), class: "btn btn-success", method: :delete %></td>
+<% else %>
+  <td><%= link_to 'Join this group', group_group_users_path(group.id), class: "btn btn-danger" , method: :post %></td>
+<% end %>

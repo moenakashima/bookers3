@@ -8,11 +8,11 @@
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
-      <span><%= link_to 'グループを作成する', groups_path, method: :post %></span>|
-      <span><%= link_to 'グループ一覧' groups_path %></span>
+      <div class= "gruop-info mb-2">
+        <span><%= link_to 'グループを作成する', new_group_path %></span>|
+        <span><%= link_to 'グループ一覧' , groups_path %></span>
+      </div>
       <%= render 'index', users: @users %>
-        </table>
-
     </div>
 
   </div>

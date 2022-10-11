@@ -1,18 +1,24 @@
 class GroupsController < ApplicationController
+
+  def new
+    @group = Group.new
+  end
+
   def index
     @groups = Group.all
+    @book = Book.new
   end
 
   def show
     @group = Group.find(params[:id])
-    @group_users = @group.group_users
+    @group_users = GroupUser.find_by(group_id: @group.id)
   end
 
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
-    @group.create
-    redirect_to groups_path
+    @group.save
+    redirect_to groups_path, notice: "You have created group successfully."
   end
 
   def edit
