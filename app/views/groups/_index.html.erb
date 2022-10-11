@@ -1,8 +1,9 @@
 <table class="table table-hover table-inverse" >
   <thead>
-    <th></th>
+    <th>Image</th>
     <th>Name</th>
     <th>Introduction</th>
+      <th>Members</th>
     <th colspan="3"></th>
   </thead>
 
@@ -14,6 +15,7 @@
       </td>
       <td><%= link_to group.name, group_path(group.id)%></td>
       <td><%= group.introduction %></td>
+      <td><%= group.group_users.count %></td>
       <% if current_user.id == group.owner_id %>
       <td><%= link_to 'Edit', edit_group_path(group.id), class: 'btn btn-sm btn-success' %></td>
       <% end %>
