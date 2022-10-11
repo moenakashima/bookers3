@@ -22,7 +22,9 @@
             <td><%= @group.name  %></td>
             <td><%= @group.introduction %></td>
             <td>
-              <%= @group_users.user.name %>
+              <% @group.users.each do |user| %>
+              <li style="list-style: none;"><%= user.name %></li>
+              <% end %>
             </td>
             <% if @group.owner_id == current_user.id %>
             <td><%= link_to 'Edit', edit_group_path(@group.id) , class: "btn btn-sm btn-success" %></td>
