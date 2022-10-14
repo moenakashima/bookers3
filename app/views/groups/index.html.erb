@@ -1,9 +1,9 @@
-<div class="container">
-  <div class = "error_explanation">
+<div class= "container">
+  <div class= "error_explanation">
    <%= render 'layouts/errors', obj: @book %>
   </div>
-  <div class="row px-5 px-sm-0">
-    <div class="col-md-3">
+  <div class= "row px-5 px-sm-0">
+    <div class= "col-md-3">
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
 
@@ -11,7 +11,7 @@
       <%= render 'books/form', book: @book %>
     </div>
 
-    <div class="col-md-8 offset-md-1">
+    <div class= "col-md-8 offset-md-1">
       <h2>Groups</h2>
       <%= render 'index', groups: @groups %>
     </div>
