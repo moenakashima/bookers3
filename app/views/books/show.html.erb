@@ -1,16 +1,16 @@
-<div class="container">
-  <div class="row px-5 px-sm-0">
-    <div class="col-md-3">
+<div class= "container">
+  <div class= "row px-5 px-sm-0">
+    <div class= "col-md-3">
       <h2>User info</h2>
       <%= render 'users/info', user: @book.user %>
       <h2>New book</h2>
       <%= render 'books/form', book: Book.new %>
     </div>
-    <div class="col-md-8 offset-md-1">
+    <div class= "col-md-8 offset-md-1">
       <h2>Book detail</h2>
-      <table class="table" >
+      <table class= "table" >
         <tbody>
-          <tr id="book_<%= @book.id %>">
+          <tr id= "book_<%= @book.id %>">
             <td>
               <%= link_to(@book.user) do %>
               <%= image_tag @book.user.get_profile_image, size: '100x100' %>
@@ -19,8 +19,8 @@
             </td>
             <td><%= link_to @book.title, "/books/#{@book.id}"  %></td>
             <td><%= @book.body %></td>
-            <td class="favorite-btn"><%= render 'favorites/btn', book: @book %></td>
-            <td class="comments-count" >コメント数：<%= @book.comments.count %></td>
+            <td class= "favorite-btn"><%= render 'favorites/btn', book: @book %></td>
+            <td class= "comments-count" >コメント数：<%= @book.comments.count %></td>
 
             <% if @book.user_id == current_user.id %>
             <td><%= link_to 'Edit', "/books/#{@book.id}/edit", class: "btn btn-sm btn-success" %></td>
@@ -31,7 +31,7 @@
           </tbody>
         </table>
         <table>
-          <tbody class="book-comments">
+          <tbody class= "book-comments">
             <%= render 'comments/comment' , book: @book %>
           </tbody>
         </table>
