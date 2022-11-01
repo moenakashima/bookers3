@@ -1,15 +1,15 @@
-<% book.comments.each do |f| %>
+<% book.comments.each do |book_comment| %>
 <tr>
   <td>
     <%= link_to(f.user) do %>
-      <%= image_tag f.user.get_profile_image, size: '50x50' %>
-      <br><%= f.user.name %>
+      <%= image_tag book_comment.user.get_profile_image, size: '50x50' %>
+      <br><%= book_comment.user.name %>
     <% end %>
   </td>
-  <td><%= f.comment %></td>
+  <td><%= book_comment.comment %></td>
   <td>
-    <% if f.user_id == current_user.id %>
-     <%= link_to 'Delete' , "/books/#{f.book_id}/comments/#{f.id}", class: "btn btn-sm btn-danger", method: :delete, remote: true%>
+    <% if book_comment.user_id == current_user.id %>
+     <%= link_to 'Delete' , "/books/#{book_comment.book_id}/comments/#{book_comment.id}", class: "btn btn-sm btn-danger", method: :delete, remote: true%>
     <% end %>
   </td>
 </tr>
