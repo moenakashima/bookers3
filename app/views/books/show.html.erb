@@ -1,11 +1,14 @@
 <div class= "container">
   <div class= "row px-5 px-sm-0">
+    
     <div class= "col-md-3">
       <h2>User info</h2>
       <%= render 'users/info', user: @book.user %>
+      
       <h2>New book</h2>
       <%= render 'books/form', book: Book.new %>
     </div>
+    
     <div class= "col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class= "table" >
@@ -30,14 +33,16 @@
           </tr>
           </tbody>
         </table>
+        
         <table>
           <tbody class= "book-comments">
             <%= render 'comments/comment' , book: @book %>
           </tbody>
         </table>
+        
           <%= form_with model:[@book, @comment], method: :post, local: false do |f| %>
-          <div><%= f.text_area :comment , rows: '5', class: "w-100" %></div>
-          <div><%= f.submit '送信' ,class: "btn btn-sm " %></div>
+            <div><%= f.text_area :comment , rows: '5', class: "w-100" %></div>
+            <div><%= f.submit '送信' ,class: "btn btn-sm " %></div>
           <% end %>
     </div>
 
