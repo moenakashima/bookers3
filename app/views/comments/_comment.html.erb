@@ -1,7 +1,7 @@
 <% book.comments.each do |book_comment| %>
 <tr>
   <td>
-    <%= link_to(f.user) do %>
+    <%= link_to(book_comment.user) do %>
       <%= image_tag book_comment.user.get_profile_image, size: '50x50' %>
       <br><%= book_comment.user.name %>
     <% end %>
